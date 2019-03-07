@@ -4,7 +4,7 @@ aux_source_directory(. SRC_LIST)
 #add_executable(${PROJECT_NAME} ${SRC_LIST})
 
 # point to cosmos/source folder
-set(COSMOS_SOURCE   "../../../")
+set(COSMOS_SOURCE   "/home/gmanolak/cosmos/source")
 set(USE_COSMOS_FROM "SOURCE")
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic -std=c++11 -Wno-invalid-offsetof")
@@ -41,14 +41,14 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
     set(COSMOS_LIBS ${COSMOS_LIBS} ws2_32)
 endif()
 
-add_executable(agent_arduino agent_arduino.cpp)
+add_executable(agent_GS Agent_GS.cpp)
 
-target_link_libraries(agent_arduino ${COSMOS_LIBS})
+target_link_libraries(agent_GS ${COSMOS_LIBS})
 
-add_executable(agent_raspi agent_raspi.cpp)
+add_executable(agent_AEV Agent_Raspberrypi.cpp)
 
-target_link_libraries(agent_raspi ${COSMOS_LIBS})
-add_executable(pipe_example pipe_example.cpp)
+target_link_libraries(agent_AEV ${COSMOS_LIBS})
+#add_executable(pipe_example pipe_example.cpp)
 
 # -----------------------------------------------
 # to deploy on a remote device
